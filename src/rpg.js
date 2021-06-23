@@ -70,13 +70,6 @@ export class Paladin {
         return presentAttack;
     }
   }
-  //attack function?
-  // Battle system: 
-  //   1) Roll Dice system
-  //       a) 1-2 (low)
-  //       b) 3-4 (medium)
-  //       c) 5 (high)
-  //       d) 6 (CRITICAL)
 }
 
 export class Monster {
@@ -124,11 +117,28 @@ export class Monster {
       this.attackPower = Math.round(this.attackPower*1.25);
       this.armor = Math.round(this.armor*1.25);
   }
+
+  attack() {
+    let roll = 1+Math.floor(Math.random() * 6);
+    let presentAttack = 0;
+    switch (roll) {
+      case 1:
+      case 2:
+        presentAttack = this.attackPower * 0.75;
+        return presentAttack;
+      case 3:
+      case 4:
+        return this.attackPower;
+      case 5:
+        presentAttack = this.attackPower * 1.25;
+        return presentAttack;
+      case 6:
+        presentAttack = this.attackPower * 1.50;
+        return presentAttack;
+    }
+  }
 }
 
-
-//   2) Level Up system
-//       a) What type of algorithm?
 
 // class Hunter {
 //   constructor() {
