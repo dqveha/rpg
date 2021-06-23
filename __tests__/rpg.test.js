@@ -1,4 +1,4 @@
-import {Paladin} from './../src/rpg.js';
+import {Paladin, Monster} from './../src/rpg.js';
 
 describe('Paladin', () => {
 
@@ -17,5 +17,18 @@ describe('Paladin', () => {
     pally.currentHealth = 80;
     pally.pallyHeal();
     expect(pally.currentMana).toEqual(80);
+  });
+});
+
+describe('Monster', () => {
+  test('should create a monster object with stats', () => {
+    const monster = new Monster();
+    expect(monster).toEqual(monster);
+  });
+
+  test('should change monster object with easy stats', () => {
+    const monster = new Monster();
+    monster.easy();
+    expect(monster.currentHealth).toEqual(38);
   });
 });

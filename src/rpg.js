@@ -25,19 +25,24 @@ export class Paladin {
   }
 }
 
-// class Monster {
-//   constructor() {
-//       this.currentHealth = 50;
-//       this.maxHealth = 50;
-//       this.attackPower = 20;
-//       this.armor = 5;
-//   }
-    
+export class Monster {
+  constructor() {
+      this.currentHealth = 50;
+      this.maxHealth = 50;
+      this.attackPower = 20;
+      this.armor = 5;
+  }
+
+  easy() {
+      this.currentHealth = Math.round(this.currentHealth*0.75);
+      this.maxHealth = Math.round(this.maxHealth*0.75);
+      this.attackPower = Math.round(this.attackPower*0.75);
+      this.armor = Math.round(this.armor*0.75);
+  }
+}    
 //     // easy --> currentHealth = 0.75 * currenthealth
 //     //hard --> currentHealth = 1.25/1.5 * currenthealth
 
-//   }
-// }
 
 // baseExp = 100
 // levelUp = baseExp + (baseExp * .10)
