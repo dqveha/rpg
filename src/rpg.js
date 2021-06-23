@@ -27,10 +27,34 @@ export class Paladin {
 
 export class Monster {
   constructor() {
-      this.currentHealth = 50;
-      this.maxHealth = 50;
-      this.attackPower = 20;
-      this.armor = 5;
+    this.currentHealth = 50;
+    this.maxHealth = 50;
+    this.attackPower = 20;
+    this.armor = 5;
+  }
+
+  scale(zone) {
+    if (zone === 1) {
+      this.currentHealth *= 1;
+      this.maxHealth *= 1;
+      this.attackPower *= 1;
+      this.armor *= 1;
+    } else if (zone === 2) {
+      this.currentHealth *= 2;
+      this.maxHealth *= 2;
+      this.attackPower *= 2;
+      this.armor *= 2;
+    } else if (zone === 3) {
+      this.currentHealth *= 3;
+      this.maxHealth *= 3;
+      this.attackPower *= 3;
+      this.armor *= 3;
+    } else if (zone === 4) {
+      this.currentHealth *= 4;
+      this.maxHealth *= 4;
+      this.attackPower *= 4;
+      this.armor *= 4;
+    } 
   }
 
   easy() {
@@ -38,6 +62,13 @@ export class Monster {
       this.maxHealth = Math.round(this.maxHealth*0.75);
       this.attackPower = Math.round(this.attackPower*0.75);
       this.armor = Math.round(this.armor*0.75);
+  }
+
+  hard() {
+      this.currentHealth = Math.round(this.currentHealth*1.25);
+      this.maxHealth = Math.round(this.maxHealth*1.25);
+      this.attackPower = Math.round(this.attackPower*1.25);
+      this.armor = Math.round(this.armor*1.25);
   }
 }    
 //     // easy --> currentHealth = 0.75 * currenthealth

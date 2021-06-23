@@ -31,4 +31,10 @@ describe('Monster', () => {
     monster.easy();
     expect(monster.currentHealth).toEqual(38);
   });
+
+  test('should change monster stats depending on different zone', () => {
+    const monster = new Monster();
+    monster.scale(2);
+    expect(monster.currentHealth).toEqual(100);
+  });
 });
