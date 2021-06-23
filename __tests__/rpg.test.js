@@ -6,12 +6,14 @@ describe('Paladin', () => {
     const pally = new Paladin();
     expect(pally).toEqual(pally);
   });
+
   test('should heal Paladin for 30 or up to max health', () => {
     const health = new Paladin();                 
     health.currentHealth = 80;
     health.pallyHeal();
     expect(health.currentHealth).toEqual(100);
   });
+
   test('should subtract mana after healing', () => {
     const pally = new Paladin();
     pally.currentHealth = 80;
@@ -41,6 +43,13 @@ describe('Paladin', () => {
     expect(pally.currentExperience).toEqual(35);
   });
 
+  test('should change attack power depending on the dice roll', () => {
+    const pally = new Paladin();
+    pally.attack();
+    expect(pally.attackPower).toBeGreaterThanOrEqual(15);
+    expect(pally.attackPower).toBeLessThanOrEqual(30);
+  });
+
 });
 
 describe('Monster', () => {
@@ -60,7 +69,5 @@ describe('Monster', () => {
     monster.scale(2);
     expect(monster.currentHealth).toEqual(100);
   });
-
-
 
 });
