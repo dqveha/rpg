@@ -7,22 +7,35 @@ export class Paladin {
     //stats
     this.experience = 0;
     this.level = 1;
-    this.attackPower = 10;
+    this.attackPower = 20;
     this.armor = 5;
     this.healPower = 30;
   }
 
   pallyHeal() {
-    this.currentHealth += this.healPower;  
+    if (this.currentMana >= 20) {
+      this.currentMana -= 20; 
+      this.currentHealth += this.healPower;
+    } else {
+      alert("NO CAN DO, PLAYA");
+    }
     if (this.currentHealth > this.maxHealth) {
       this.currentHealth = this.maxHealth; 
     }
   }
 }
 
-// class Enemies {
+// class Monster {
 //   constructor() {
-//     this.stats = player's xp/level(?) x 1.5
+//       this.currentHealth = 50;
+//       this.maxHealth = 50;
+//       this.attackPower = 20;
+//       this.armor = 5;
+//   }
+    
+//     // easy --> currentHealth = 0.75 * currenthealth
+//     //hard --> currentHealth = 1.25/1.5 * currenthealth
+
 //   }
 // }
 
