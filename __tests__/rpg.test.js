@@ -18,6 +18,29 @@ describe('Paladin', () => {
     pally.pallyHeal();
     expect(pally.currentMana).toEqual(80);
   });
+
+  test('should change Pally stats when calling levelUp depending its current level', () => {
+    const pally = new Paladin();
+    pally.levelUp();
+    expect(pally.level).toEqual(2);
+  });
+
+  test('should reset health and mana and experience upon death', () => {
+    const pally = new Paladin();
+    pally.currentHealth = 70;
+    pally.currentMana = 80;
+    pally.currentExperience = 90;
+    pally.death();
+    expect(pally.currentHealth).toEqual(pally.maxHealth);
+  });
+
+  test('should give 10 experience when you kill a monster', () => {
+    const pally = new Paladin();
+    pally.currentExperience = 25;
+    pally.win();
+    expect(pally.currentExperience).toEqual(35);
+  });
+
 });
 
 describe('Monster', () => {
@@ -37,4 +60,7 @@ describe('Monster', () => {
     monster.scale(2);
     expect(monster.currentHealth).toEqual(100);
   });
+
+
+
 });

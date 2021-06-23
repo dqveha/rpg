@@ -5,7 +5,8 @@ export class Paladin {
     this.currentMana = 100;
     this.maxMana = 100;
     //stats
-    this.experience = 0;
+    this.currentExperience = 0;
+    this.experienceCap = 50;
     this.level = 1;
     this.attackPower = 20;
     this.armor = 5;
@@ -22,6 +23,32 @@ export class Paladin {
     if (this.currentHealth > this.maxHealth) {
       this.currentHealth = this.maxHealth; 
     }
+  }
+
+  levelUp() {
+    this.maxHealth = Math.round(this.maxHealth*1.1);
+    this.currentHealth = this.maxHealth;
+
+    this.maxMana = Math.round(this.maxMana*1.1);
+    this.currentMana = this.maxMana;
+    //stats
+    this.level++;
+    this.currentExperience = 0;
+    this.experienceCap = Math.round(this.experienceCap*1.1);
+    
+    this.attackPower = Math.round(this.attackPower*1.1);
+    this.armor = Math.round(this.armor*1.1);
+    this.healPower = Math.round(this.healPower*1.1);
+  }
+
+  death() {
+    this.currentExperience = 0;
+    this.currentHealth = this.maxHealth; 
+    this.currentMana = this.maxMana; 
+  }
+
+  win() {
+    this.currentExperience += 10;
   }
 }
 
@@ -70,15 +97,7 @@ export class Monster {
       this.attackPower = Math.round(this.attackPower*1.25);
       this.armor = Math.round(this.armor*1.25);
   }
-}    
-//     // easy --> currentHealth = 0.75 * currenthealth
-//     //hard --> currentHealth = 1.25/1.5 * currenthealth
-
-
-// baseExp = 100
-// levelUp = baseExp + (baseExp * .10)
-
-
+}
 
 // Battle system: 
 //   1) Roll Dice system
