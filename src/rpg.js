@@ -1,14 +1,22 @@
 export class Paladin {
   constructor() {
-    this.experience = 0;
-    this.health = 100;
-    this.mana = 100;
-    this.level = 1;
+    this.currentHealth = 100;
+    this.maxHealth = 100;
+    this.currentMana = 100;
+    this.maxMana = 100;
     //stats
+    this.experience = 0;
+    this.level = 1;
     this.attackPower = 10;
     this.armor = 5;
     this.healPower = 30;
+  }
 
+  pallyHeal() {
+    this.currentHealth += this.healPower;  
+    if (this.currentHealth > this.maxHealth) {
+      this.currentHealth = this.maxHealth; 
+    }
   }
 }
 
